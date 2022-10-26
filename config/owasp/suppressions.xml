@@ -13,12 +13,12 @@
   <!--End of false positives section -->
 
   <!--Please add all the temporary suppression under the below section-->
-  <!-- <suppress>
+  <suppress>
     <notes>
-      CVE-2022-38752
+      CVE-2022-38752 (Resolved in snakeyaml 1.32 but still being flagged by dependency check)
     </notes>
     <cve>CVE-2022-38752</cve>
-  </suppress> -->
+  </suppress>
   <!--End of temporary suppression section -->
 
 </suppressions>
