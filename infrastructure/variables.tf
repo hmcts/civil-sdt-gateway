@@ -10,8 +10,6 @@ variable "env" {}
 
 variable "subscription" {}
 
-variable "deployment_namespace" {}
-
 variable "common_tags" {
   type = map(string)
 }
@@ -28,6 +26,6 @@ variable "my_component" {
 }
 
 variable "my_subscription_id" {
-  description = "Subscription id.  Set to environment specific value by pipeline."
   type = string
+  description = "Subscription id.  Set to environment specific value by pipeline."
 }
