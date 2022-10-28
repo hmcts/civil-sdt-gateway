@@ -27,19 +27,3 @@ variable "common_tags" {
 variable "aks_subscription_id" {
   type = string
 }
-
-# New variables
-variable "my_product" {
-  type = string
-  default = "civil"
-}
-
-variable "my_component" {
-  type = string
-  default = "sdt-gateway"
-}
-
-variable "my_subscription_id" {
-  type = string
-  description = "Subscription id.  Set to environment specific value by pipeline."
-}
