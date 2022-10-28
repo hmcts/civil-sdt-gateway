@@ -9,3 +9,7 @@ output "jenkins_component" {
 output "jenkins_subscription" {
   value = var.subscription
 }
+
+output "jenkins_aks_subscription_id" {
+  value = var.aks_subscription_id
+}
