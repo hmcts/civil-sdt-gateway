@@ -6,5 +6,4 @@ module "api_mgmt_product" {
   subscription_required = "false"
   api_mgmt_name         = "cft-api-mgmt-${var.env}"
   api_mgmt_rg           = "cft-${var.env}-network-rg"
-  product_access_control_groups = ["developers"]
 }
