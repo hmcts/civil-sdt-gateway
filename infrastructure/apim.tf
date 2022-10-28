@@ -1,3 +1,4 @@
+# Include CNP module for setting up APIM product
 module "api_mgmt_product" {
   source                = "git@github.com:hmcts/cnp-module-api-mgmt-product?ref=master"
   name                  = "${var.my_product}-${var.my_component}"
