@@ -5,7 +5,7 @@ locals {
   api_mgmt_api_name = "${var.product}-${var.component}-api"
   api_base_path = var.product
   url_civil_sdt_gateway = "http://civil-sdt-gateway-${var.env}.service.core-compute-${var.env}.internal"
-  url_swagger = "TODO"
+  url_swagger = "https://raw.githubusercontent.com/hmcts/reform-api-docs/master/docs/specs/civil-sdt-gateway.json"
 }
 
 # Include CNP module for setting up an APIM product
