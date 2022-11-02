@@ -46,5 +46,5 @@ module "api-mgmt-api-policy" {
   api_mgmt_name          = local.api_mgmt_name
   api_mgmt_rg            = local.api_mgmt_resource_group
   api_name               = module.api_mgmt_api.name
-  api_policy_xml_content = data.local_file.api_policy
+  api_policy_xml_content = data.local_file.api_policy.content
 }
