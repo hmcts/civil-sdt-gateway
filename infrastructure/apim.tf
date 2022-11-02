@@ -20,18 +20,20 @@ module "api_mgmt_product" {
 
 # Include CNP module for setting up an API on an APIM product
 # Uses output variable from api_mgmt_product to set product_id
+# content_format needs to be set to openapi-link as specs (found at swagger_url) are in OpenAPI 3.0.1 format
 module "api_mgmt_api" {
-  source        = "git@github.com:hmcts/cnp-module-api-mgmt-api?ref=master"
-  name          = local.api_mgmt_api_name
-  display_name  = "Civil SDT Gateway API"
-  api_mgmt_name = local.api_mgmt_name
-  api_mgmt_rg   = local.api_mgmt_resource_group
-  product_id    = module.api_mgmt_product.product_id
-  path          = local.api_base_path
-  service_url   = local.url_civil_sdt_gateway
-  protocols     = ["http", "https"]
-  swagger_url   = local.url_swagger
-  revision      = "1"
+  source         = "git@github.com:hmcts/cnp-module-api-mgmt-api?ref=master"
+  name           = local.api_mgmt_api_name
+  display_name   = "Civil SDT Gateway API"
+  api_mgmt_name  = local.api_mgmt_name
+  api_mgmt_rg    = local.api_mgmt_resource_group
+  product_id     = module.api_mgmt_product.product_id
+  path           = local.api_base_path
+  service_url    = local.url_civil_sdt_gateway
+  protocols      = ["http", "https"]
+  swagger_url    = local.url_swagger
+  content_format = "openapi-link"
+  revision       = "1"
 }
 
 # Reference to file containing API policy
