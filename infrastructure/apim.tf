@@ -5,7 +5,7 @@ locals {
   api_mgmt_api_name = "${var.product}-${var.component}-api"
   api_base_path = var.product
   url_civil_sdt_gateway = "http://civil-sdt-gateway-${var.env}.service.core-compute-${var.env}.internal"
-  url_swagger = "https://raw.githubusercontent.com/hmcts/reform-api-docs/master/docs/specs/civil-sdt-gateway.json"
+  url_swagger = "https://raw.githubusercontent.com/hmcts/civil-sdt-gateway/demo/src/main/resources/test.wsdl"
 }
 
 # Include CNP module for setting up an APIM product
@@ -20,9 +20,9 @@ module "api_mgmt_product" {
 
 # Include CNP module for setting up an API on an APIM product
 # Uses output variable from api_mgmt_product to set product_id
-# content_format needs to be set to openapi-link as specs (found at swagger_url) are in OpenAPI 3.0.1 format
+# content_format needs to be set to wsdl-link as specs are in WSDL format
 module "api_mgmt_api" {
-  source         = "git@github.com:hmcts/cnp-module-api-mgmt-api?ref=master"
+  source         = "git@github.com:hmcts/cnp-module-api-mgmt-api?ref=api_type"
   name           = local.api_mgmt_api_name
   display_name   = "Civil SDT Gateway API"
   api_mgmt_name  = local.api_mgmt_name
@@ -31,8 +31,9 @@ module "api_mgmt_api" {
   path           = local.api_base_path
   service_url    = local.url_civil_sdt_gateway
   protocols      = ["http", "https"]
+  api_type       = "soap"
   swagger_url    = local.url_swagger
-  content_format = "openapi-link"
+  content_format = "wsdl-link"
   revision       = "1"
 }
 
