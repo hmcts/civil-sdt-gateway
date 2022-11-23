@@ -1,3 +1,4 @@
+# These output variables are just used for debugging
 output "jenkins_product" {
   value = var.product
 }
